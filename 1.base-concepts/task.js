@@ -22,5 +22,24 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
+  let toPay;
+  let payPerMonth;
+  let fullSum;
+
+  if (
+  isNaN(percent);
+  isNaN(contribution);
+  isNaN(amount);
+  isNaN(countMonths);
+  ) {
+    console.log('что-то пошло не так. smth went wrong');
+    return false;
+  }
+
+  percent = (percent / 100) / 12;
+  toPay = amount - contribution;
+  payPerMonth = toPay * (percent + (percent / ((Math.pow((1 + percent), countMonths)) - 1)));
+  fullSum = parseFloat((payPerMonth * countMonths).toFixed(2));
   
+  return fullSum;
 }
