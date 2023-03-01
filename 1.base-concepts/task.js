@@ -1,7 +1,23 @@
 "use strict"
 function solveEquation(a, b, c) {
   let arr = [];
-  
+  let rootOne;
+  let rootTwo;
+  let d = Math.pow(b, 2) - 4*a*c;
+
+  if (d < 0) {
+    console.log('Корней нет')
+  } else if (d = 0) {
+    let rootOne = -b/(2*a);
+    arr [0] = rootOne;
+    console.log(arr);
+  } else {
+    rootOne = (-b + Math.sqrt(d) )/(2*a);
+    rootTwo = (-b - Math.sqrt(d) )/(2*a);
+    arr [0] = rootOne;
+    arr [1] = rootTwo;
+    console.log('первый корень' + arr[0] + ';' + 'второй корень' + arr[1]);
+  }
   return arr;
 }
 
