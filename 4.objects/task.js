@@ -12,26 +12,24 @@ Student.prototype.setSubject = function (subjectName) {
 Student.prototype.addMarks = function (...marks) {
  if (this.marks !== undefined) {
   this.marks.push(...marks);
- } else {
-  console.log("student expelled");
- }
+ } 
 }
 
 Student.prototype.getAverage = function () {
  let marksSum = 0;
- let marksNumber = 0;
+ // let marksNumber = 0;
  let result;
 
- if (this.marks.length === 0) {
+ if (this.marks === undefined || this.marks.length === 0) {
   return 0;
  }
 
  if (this.marks.length > 0) {
   for(let value of this.marks) {
    marksSum += value;
-   marksNumber += 1;
+   // marksNumber += 1;
   }
-  result = marksSum / marksNumber;
+  result = marksSum / this.marks.length;
  }
 
  return result;
