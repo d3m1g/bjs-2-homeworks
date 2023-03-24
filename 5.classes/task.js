@@ -14,7 +14,7 @@ class PrintEditionItem {
  set state(bookState) {
   if (bookState < 0) {
    this._state = 0;
-  } else if (bookState > 0) {
+  } else if (bookState > 100) {
    this._state = 100;
   } else {
    this._state = bookState;
@@ -52,10 +52,6 @@ class Book extends PrintEditionItem {
 class NovelBook extends Book {
  constructor(author, name, releaseDate, pagesCount) {
   super(name, releaseDate, pagesCount);
-  this.name = name;
-  this.releaseDate = releaseDate;
-  this.pagesCount = pagesCount;
-  this.state = 100;
   this.type = "novel";
   this.author = author;
  }
@@ -64,10 +60,6 @@ class NovelBook extends Book {
 class FantasticBook extends Book {
  constructor(author, name, releaseDate, pagesCount) {
   super(name, releaseDate, pagesCount);
-  this.name = name;
-  this.releaseDate = releaseDate;
-  this.pagesCount = pagesCount;
-  this.state = 100;
   this.type = "fantastic";
   this.author = author;
  }
@@ -76,10 +68,6 @@ class FantasticBook extends Book {
 class DetectiveBook extends Book {
  constructor(author, name, releaseDate, pagesCount) {
   super(name, releaseDate, pagesCount);
-  this.name = name;
-  this.releaseDate = releaseDate;
-  this.pagesCount = pagesCount;
-  this.state = 100;
   this.type = "detective";
   this.author = author;
  }
@@ -92,14 +80,14 @@ class Library {
  }
 
  addBook(book) {
-  if (this.state > 30) {
+  if (book.state > 30) {
    this.books.push(book);
   }
  }
 
- findByBook(type, value) {
-  for (i = 0; i < this.books.length; i++) {
-   if (this.books[i].type === value) {
+ findBookBy(type, value) {
+  for (let i = 0; i < this.books.length; i++) {
+   if (this.books[i][type] === value) {
     return this.books[i];
    }
   }
@@ -107,7 +95,7 @@ class Library {
  }
 
  giveBookByName(bookName) {
-  const givenBook = this.findByBook("name", bookName);
+  const givenBook = this.findBookBy("name", bookName);
   if (givenBook) {
    this.books.splice(this.books.indexOf(bookName), 1)
    return givenBook;
@@ -118,7 +106,7 @@ class Library {
 
 class Student {
  constructor(name, marks) {
-  this.name = name;
+  this.name = "name";
   this.marks = {};
  }
 
