@@ -1,6 +1,6 @@
 ﻿function parseCount(smthToParse) {
  const final = Number.parseFloat(smthToParse);
- if (final === NaN) {
+ if (Number.isNaN(final)) {
   throw new Error("Невалидное значение");
  }
  return final;
@@ -32,7 +32,7 @@ class Triangle {
   const halfPerimeter = this.perimeter / 2;
   return parseFloat(Math.sqrt(
    (halfPerimeter * (halfPerimeter - this.a) * (halfPerimeter - this.b) * (halfPerimeter - this.c))
-   ).toFixed(3));
+  ).toFixed(3));
  }
 }
 
